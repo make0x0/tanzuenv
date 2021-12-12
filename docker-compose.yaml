@@ -1,0 +1,17 @@
+version: "3"
+services:
+  tanzuenv:
+    build: ./
+    command: ["tail", "-f", "/dev/null"]
+    #image: ${IMAGE_NAME}:${IMAGE_TAG}
+    volumes:
+      - ./data:/data
+      - ./tanzu_config:/root/.config/tanzu
+      - ./tanzu_cache:/root/.cache/tanzu
+      - ./tanzu_kubeconfig-tkg:/root/.kube-tkg
+      - ./tanzu_kubeconfig:/root/.kube
+      ## mount docker.sock
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      TZ: Asia/Tokyo
+    network_mode: "host"
