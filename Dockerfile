@@ -3,7 +3,7 @@ FROM ubuntu:20.04
 ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update && apt-get install -y \
-        vim screen sudo bash -completion \
+        vim screen sudo bash-completion \
         wget curl git \
         make build-essential \
         language-pack-ja-base language-pack-ja \
